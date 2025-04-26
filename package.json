@@ -1,6 +1,6 @@
 {
   "name": "@blaahaj/dropbox-hacking-mediainfo-db",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extract and store mediainfo information from videos in Dropbox",
   "main": "index.js",
   "scripts": {
