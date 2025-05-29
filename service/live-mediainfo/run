@@ -8,7 +8,7 @@ export PATH="$HOME/bin:$PATH"
 
 cd "$( git rev-parse --show-toplevel )"
 
-DB=/Users/rachel/git/github.com/rvedotrc/dropbox-hacking/var/live/mediainfo
+DB=./var/live/mediainfo
 
 if [ ! -e "$DB"/state.json ] ; then
 	exec ./with-live ./bin/mediainfo-cache init --recursive "" "$DB" "$DB"
