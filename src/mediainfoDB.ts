@@ -49,9 +49,7 @@ export class MediainfoDB {
 
         for (const hash in data) {
           const value = data[hash];
-          const e = value.mediainfoData;
-
-          const mediainfoData = new MediainfoData(e);
+          const mediainfoData = value.mediainfoData;
 
           map.set(hash, {
             mediainfoData,
