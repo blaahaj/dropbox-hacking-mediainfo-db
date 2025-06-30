@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/blaahaj/dropbox-hacking-mediainfo-db/compare/v1.1.0...v1.2.0) (2025-06-30)
+
+
+### Features
+
+* run mediainfo via full tmp download ([#11](https://github.com/blaahaj/dropbox-hacking-mediainfo-db/issues/11)) ([eb64edd](https://github.com/blaahaj/dropbox-hacking-mediainfo-db/commit/eb64edd3715faff74d2d1f69cf9ae914c941f78c))
+
 ## [1.1.0](https://github.com/blaahaj/dropbox-hacking-mediainfo-db/compare/v1.0.0...v1.1.0) (2025-05-29)
 
 
