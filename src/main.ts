@@ -1,13 +1,5 @@
 import { Dropbox, files } from "dropbox";
 import { lister, ListerArgs } from "@blaahaj/dropbox-hacking-lister";
-import {
-  Fetcher as F,
-  fetcher as Fetcher,
-  MediainfoData,
-  MediainfoDB,
-  MediainfoFromHash,
-  StateDir,
-} from "@blaahaj/dropbox-hacking-mediainfo-db";
 
 import FileMetadata = files.FileMetadata;
 import {
@@ -19,6 +11,12 @@ import {
   writeStdout,
 } from "@blaahaj/dropbox-hacking-util";
 import { runAsMain, type Handler } from "@blaahaj/dropbox-hacking-util/cli";
+import { StateDir } from "./stateDir.js";
+import type { MediainfoData } from "./types.js";
+import { MediainfoDB, type MediainfoFromHash } from "./mediainfoDB.js";
+import { remoteFetcher } from "./remoteFetcher.js";
+import { localFetcher } from "./localFetcher.js";
+import type { Fetcher } from "./fetcher.js";
 
 const verb = "mediainfo-cache";
 
@@ -35,6 +33,8 @@ const flush = () =>
     pendingItems = [];
   });
 
+// FIXME: expand to cover all of mediainfo's formats
+// https://mediaarea.net/en/MediaInfo/Support/Formats
 export const isMediainfoableFile = (path: string): boolean => {
   const lower = path.toLowerCase();
   return lower.endsWith(".mov") || lower.endsWith(".mp4");
@@ -44,7 +44,7 @@ const doItem = async (
   _dbx: Dropbox,
   item: FileMetadata,
   stateDir: StateDir,
-  fetcher: F,
+  fetcher: Fetcher,
 ): Promise<void> => {
   if (item.content_hash === undefined) return;
   if (item.path_lower === undefined) return;
@@ -83,10 +83,12 @@ const makeLister = (
   globalOptions: GlobalOptions,
 ) => {
   const limiter = makePromiseLimiter<MediainfoData>(
-    5,
+    2,
     "mediainfo-cache-limiter",
   );
-  const fetcher = Fetcher(dbx, limiter, globalOptions);
+  const fetcher = process.env.USE_LOCAL_FETCHER
+    ? localFetcher(dbx, limiter, globalOptions)
+    : remoteFetcher(dbx, limiter, globalOptions);
 
   return lister({
     dbx,
