@@ -34,7 +34,8 @@
     "typescript-eslint": "^8.19.1"
   },
   "exports": {
-    ".": "./dist/src/index.js"
+    ".": "./dist/src/index.js",
+    "./types": "./dist/src/types.js"
   },
   "dependencies": {
     "@blaahaj/dropbox-hacking-downloader": "^1.0.1",
