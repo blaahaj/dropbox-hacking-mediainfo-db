@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/blaahaj/dropbox-hacking-mediainfo-db/compare/v1.2.0...v1.3.0) (2025-07-19)
+
+
+### Features
+
+* provide types for various tracks ([#13](https://github.com/blaahaj/dropbox-hacking-mediainfo-db/issues/13)) ([370ec4b](https://github.com/blaahaj/dropbox-hacking-mediainfo-db/commit/370ec4b98c2ff0e83ae4653a6f582804bfd44780))
+
 ## [1.2.0](https://github.com/blaahaj/dropbox-hacking-mediainfo-db/compare/v1.1.0...v1.2.0) (2025-06-30)
 
 
