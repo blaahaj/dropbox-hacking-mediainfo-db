@@ -1,20 +1,11 @@
 import * as fs from "fs";
 
-import { MediainfoData } from "./types.js";
-
-export type ContentHash = string;
-
-export type MediainfoFromHash = {
-  mediainfoData: MediainfoData;
-  addedAt: Date;
-  firstSeenFilename: string;
-};
-
-type MediainfoFromHashSerializable = {
-  mediainfoData: MediainfoData;
-  addedAt: string;
-  firstSeenFilename: string;
-};
+import type {
+  MediainfoData,
+  ContentHash,
+  MediainfoFromHash,
+  MediainfoFromHashSerializable,
+} from "./types.js";
 
 type UnwrittenMediainfoFromHash = Map<ContentHash, MediainfoFromHash>;
 

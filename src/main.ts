@@ -12,8 +12,8 @@ import {
 } from "@blaahaj/dropbox-hacking-util";
 import { runAsMain, type Handler } from "@blaahaj/dropbox-hacking-util/cli";
 import { StateDir } from "./stateDir.js";
-import type { MediainfoData } from "./types.js";
-import { MediainfoDB, type MediainfoFromHash } from "./mediainfoDB.js";
+import type { MediainfoData, MediainfoFromHash } from "./types.js";
+import { MediainfoDB } from "./mediainfoDB.js";
 import { remoteFetcher } from "./remoteFetcher.js";
 import { localFetcher } from "./localFetcher.js";
 import type { Fetcher } from "./fetcher.js";
