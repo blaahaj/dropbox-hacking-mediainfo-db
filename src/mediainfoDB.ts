@@ -1,8 +1,8 @@
 import * as fs from "fs";
 
 import type {
-  MediainfoData,
   ContentHash,
+  MediainfoData,
   MediainfoFromHash,
   MediainfoFromHashSerializable,
 } from "./types.js";
