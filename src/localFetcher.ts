@@ -1,17 +1,17 @@
 import { Dropbox, files } from "dropbox";
 import FileMetadata = files.FileMetadata;
 import { execFile } from "node:child_process";
-
-import { GlobalOptions, PromiseLimiter } from "@blaahaj/dropbox-hacking-util";
-
-import { MediainfoData } from "./types.js";
-import type { Fetcher } from "./fetcher.js";
-import * as dl from "@blaahaj/dropbox-hacking-downloader";
-import { promisify } from "node:util";
+import { randomUUID } from "node:crypto";
 import { unlink } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { randomUUID } from "node:crypto";
 import { join } from "node:path";
+import { promisify } from "node:util";
+
+import * as dl from "@blaahaj/dropbox-hacking-downloader";
+import { GlobalOptions, PromiseLimiter } from "@blaahaj/dropbox-hacking-util";
+
+import type { Fetcher } from "./fetcher.js";
+import { MediainfoData } from "./types.js";
 
 const generateTmpFileName = (rev: string) =>
   Promise.resolve(join(tmpdir(), `mediainfo-download-${rev}-${randomUUID()}`));

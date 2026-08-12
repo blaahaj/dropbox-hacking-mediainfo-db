@@ -8,8 +8,8 @@ import {
   simplePromiseRetrier,
 } from "@blaahaj/dropbox-hacking-util";
 
-import { MediainfoData } from "./types.js";
 import type { Fetcher } from "./fetcher.js";
+import { MediainfoData } from "./types.js";
 
 const remoteMediainfo = async (
   uri: string,

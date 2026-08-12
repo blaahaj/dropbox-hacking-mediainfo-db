@@ -1,5 +1,5 @@
-import { Dropbox, files } from "dropbox";
 import { lister, ListerArgs } from "@blaahaj/dropbox-hacking-lister";
+import { Dropbox, files } from "dropbox";
 
 import FileMetadata = files.FileMetadata;
 import {
@@ -10,13 +10,14 @@ import {
   writeStderr,
   writeStdout,
 } from "@blaahaj/dropbox-hacking-util";
-import { runAsMain, type Handler } from "@blaahaj/dropbox-hacking-util/cli";
-import { StateDir } from "./stateDir.js";
-import type { MediainfoData, MediainfoFromHash } from "./types.js";
+import { type Handler, runAsMain } from "@blaahaj/dropbox-hacking-util/cli";
+
+import type { Fetcher } from "./fetcher.js";
+import { localFetcher } from "./localFetcher.js";
 import { MediainfoDB } from "./mediainfoDB.js";
 import { remoteFetcher } from "./remoteFetcher.js";
-import { localFetcher } from "./localFetcher.js";
-import type { Fetcher } from "./fetcher.js";
+import { StateDir } from "./stateDir.js";
+import type { MediainfoData, MediainfoFromHash } from "./types.js";
 
 const verb = "mediainfo-cache";
 
